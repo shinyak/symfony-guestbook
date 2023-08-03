@@ -17,3 +17,6 @@ cd プロジェクトルート
 symfony server:stop
 ```
 
+# 進行
+完了 コントローラーを作成する
+次 データベースをセットアップする https://symfony.com/doc/6.2/the-fast-track/ja/7-database.html
