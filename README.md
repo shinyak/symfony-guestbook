@@ -1,4 +1,6 @@
 # Symfony学習
+ローカルPC上のPHP + docker環境上のDB等を利用してSymfony学習を行う
+
 ## 参照
 The Fast Track - 基礎から最速で学ぶ Symfony 入門
 https://symfony.com/doc/6.2/the-fast-track/ja/index.html
@@ -20,6 +22,19 @@ symfony server:stop
 # 進行
 完了 コントローラーを作成する
 次 データベースをセットアップする https://symfony.com/doc/6.2/the-fast-track/ja/7-database.html
+
+# docker
+docker composeコマンドを使う際はプロジェクトルート(docker-compose.ymlのある場所)に移動する
+
+```
+cd プロジェクトルート
+docker compose ps
+```
+
+## DB接続
+```
+docker compose exec database psql -d app -U app
+```
 
 # TIPS
 ## homebrew xdebug 再インストール
