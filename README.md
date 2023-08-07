@@ -32,8 +32,37 @@ docker compose ps
 ```
 
 ## DB接続
+### dockerコンテナイメージ内から
+
 ```
 docker compose exec database psql -d app -U app
+```
+
+### ローカルPCから
+
+ローカルにマッピングされているポートを確認
+
+```
+docker port guestbook-database-1
+
+5432/tcp -> 0.0.0.0:51886
+                     ↑これ
+```
+
+パスワード確認
+
+```
+grep POSTGRES_PASSWORD docker-compose.yml
+
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-!ChangeMe!}
+                                                ↑これ
+```
+
+psqlコマンド実行
+
+```
+psql -h localhost -d app -U app -p 51886
+ユーザー app のパスワード: !ChangeMe!
 ```
 
 # TIPS
