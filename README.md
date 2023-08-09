@@ -13,7 +13,17 @@ symfony server:start -d
 symfony open:local
 ```
 
+```
+cd プロジェクトルート
+docker compose up -d
+```
+
 ### 終了
+```
+cd プロジェクトルート
+docker compose down
+```
+
 ```
 cd プロジェクトルート
 symfony server:stop
