@@ -9,29 +9,17 @@ https://symfony.com/doc/6.2/the-fast-track/ja/index.html
 ### 開始
 ```
 cd プロジェクトルート
+docker compose up -d
 symfony server:start -d
 symfony open:local
-```
-
-```
-cd プロジェクトルート
-docker compose up -d
 ```
 
 ### 終了
 ```
 cd プロジェクトルート
+symfony server:stop
 docker compose down
 ```
-
-```
-cd プロジェクトルート
-symfony server:stop
-```
-
-# 進行
-完了 コントローラーを作成する
-次 データベースをセットアップする https://symfony.com/doc/6.2/the-fast-track/ja/7-database.html
 
 # docker
 docker composeコマンドを使う際はプロジェクトルート(docker-compose.ymlのある場所)に移動する
@@ -77,6 +65,11 @@ psql -h localhost -d app -U app -p 51886
 
 # TIPS
 ## homebrew xdebug 再インストール
+本書籍ではローカルPC上のPHP+docker環境のDBを利用するため
+ローカルPCにPHPをインストールする必要があり
+必要なPHP拡張もローカルPCにインストールする必要があるが
+homebrewによるxdebugインストールは失敗する場合がある。
+
 ### 以下のようにxdebugインストールが失敗する場合
 
 ```
