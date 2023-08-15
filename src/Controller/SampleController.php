@@ -19,6 +19,7 @@ class SampleController extends AbstractController
         return $this->render('sample/index.html.twig', [
             'controller_name' => 'SampleController',
             'hoge_form' => $hoge_form,
+            'post_data' => $request->request->all()
         ]);
     }
 }
