@@ -16,10 +16,16 @@ class SampleController extends AbstractController
         $hoge_form = $this->createForm(HogeType::class);
         $hoge_form->handleRequest($request);
 
+        $validation_result = 'not submitted';
+        if ($hoge_form->isSubmitted()) {
+            $validation_result = $hoge_form->isValid() ? 'valid' : 'invalid';
+        }
+
         return $this->render('sample/index.html.twig', [
             'controller_name' => 'SampleController',
             'hoge_form' => $hoge_form,
-            'post_data' => $request->request->all()
+            'post_data' => $request->request->all(),
+            'validation_result' => $validation_result,
         ]);
     }
 }

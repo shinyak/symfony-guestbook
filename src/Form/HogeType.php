@@ -14,7 +14,7 @@ class HogeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('hoge_text', TextType::class, ['required' => false])
+            ->add('hoge_text', TextType::class, ['required' => true])
             ->add('hoge_requires_fuga', ChoiceType::class, [
                 'label' => 'fuga必須',
                 'choices' => [
