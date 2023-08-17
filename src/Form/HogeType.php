@@ -23,7 +23,10 @@ class HogeType extends AbstractType
                 ],
                 'expanded' => true,
             ])
-            ->add('fuga', FugaType::class, ['no_submit' => true])
+            ->add('fuga', FugaType::class, [
+                'no_submit' => true,
+                'fuga_required' => $options['fuga_required'],
+            ])
             ->add('hoge_submit', SubmitType::class)
         ;
     }
@@ -31,7 +34,8 @@ class HogeType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            // Configure your form options here
+            'no_submit' => false,
+            'fuga_required'=> false,
         ]);
     }
 }

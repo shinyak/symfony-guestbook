@@ -16,10 +16,10 @@ class FugaType extends AbstractType
     {
         $builder
             ->add('fuga_text', TextType::class, [
-                'required' => false,
-                'constraints' => [
-                    new Assert\Callback([$this, 'validateFugaText'])
-                ],
+                'required' => $options['fuga_required'],
+//                'constraints' => [
+//                    new Assert\Callback([$this, 'validateFugaText'])
+//                ],
             ])
         ;
 
@@ -32,23 +32,24 @@ class FugaType extends AbstractType
     {
         $resolver->setDefaults([
             'no_submit' => false,
+            'fuga_required'=> false,
         ]);
     }
 
-    public function validateFugaText($value, ExecutionContextInterface $context)
-    {
-        // fuga_text <- fugaフォーム <- hogeフォーム 親をたどってhogeフォームを取得
-        $hoge_form = $context->getObject()->getParent()->getParent();
-        $fuga_text = $context->getObject();
-
-        if('yes' !== $hoge_form->get('hoge_requires_fuga')->getData()) {
-            return;
-        }
-
-        if (empty($fuga_text->getData())) {
-            $context
-                ->buildViolation('fuga_textの入力必須が選択されています')
-                ->addViolation();
-        }
-    }
+//    public function validateFugaText($value, ExecutionContextInterface $context)
+//    {
+//        // fuga_text <- fugaフォーム <- hogeフォーム 親をたどってhogeフォームを取得
+//        $hoge_form = $context->getObject()->getParent()->getParent();
+//        $fuga_text = $context->getObject();
+//
+//        if('yes' !== $hoge_form->get('hoge_requires_fuga')->getData()) {
+//            return;
+//        }
+//
+//        if (empty($fuga_text->getData())) {
+//            $context
+//                ->buildViolation('fuga_textの入力必須が選択されています')
+//                ->addViolation();
+//        }
+//    }
 }
