@@ -11,7 +11,8 @@
 <div class="example-wrapper">
     <h1>Hoge form</h1>
     <div>
-        {{ form(hoge_form) }}
+        {# novalidateとしてHTML側での入力チェックを無効化する #}
+        {{ form(hoge_form, {attr: {novalidate: null}}) }}
     </div>
 
     <h1>Validator</h1>

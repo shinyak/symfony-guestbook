@@ -13,7 +13,7 @@ class SampleController extends AbstractController
     #[Route('/sample', name: 'app_sample')]
     public function index(Request $request): Response
     {
-        $hoge_form = $this->createForm(HogeType::class);
+        $hoge_form = $this->createForm(HogeType::class, null, []);
         $hoge_form->handleRequest($request);
 
         $validation_result = 'not submitted';
